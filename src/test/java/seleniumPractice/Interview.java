@@ -15,17 +15,11 @@ WebDriver driver = new ChromeDriver();
 		
 		driver.get("https://selectorshub.com/xpath-practice-page/");
 		driver.manage().window().maximize();
-		List<WebElement> list = driver.findElements(By.xpath("//*[@id='resultTable']/tbody/tr"));
+		String role = driver.findElement(By.xpath("//*[@id='ohrmList_chkSelectRecord_14']/ancestor::tr/child::td[3]")).getText();
+		System.out.println(role);
+		driver.quit();
 		
-		for(WebElement item:list) {
-			if(item.getText().contains("Jordan.Mathews")) {
-				String details = item.getText();
-				String[] role = details.split(" ");
-				System.out.println(Arrays.toString(role));
-				System.out.println(role[0] + role[1]);
-			}
-		}
-
+		
 	}
 
 }
